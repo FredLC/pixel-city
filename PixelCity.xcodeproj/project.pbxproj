@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		481B189F222DDBF40096C857 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B189E222DDBF40096C857 /* DroppablePin.swift */; };
 		48342B5D222DBB4E0098FD30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48342B5C222DBB4E0098FD30 /* AppDelegate.swift */; };
 		48342B5F222DBB4E0098FD30 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48342B5E222DBB4E0098FD30 /* MapVC.swift */; };
 		48342B62222DBB4E0098FD30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48342B60222DBB4E0098FD30 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		481B189E222DDBF40096C857 /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		48342B59222DBB4E0098FD30 /* PixelCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48342B5C222DBB4E0098FD30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48342B5E222DBB4E0098FD30 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		48342B6F222DBC5C0098FD30 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				481B189E222DDBF40096C857 /* DroppablePin.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,7 +123,6 @@
 				8AB5F00FB0C8130D105FB867 /* Pods-PixelCity.debug.xcconfig */,
 				90177C875612A69879717CA0 /* Pods-PixelCity.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -247,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48342B5F222DBB4E0098FD30 /* MapVC.swift in Sources */,
+				481B189F222DDBF40096C857 /* DroppablePin.swift in Sources */,
 				48342B5D222DBB4E0098FD30 /* AppDelegate.swift in Sources */,
 				48342B73222DBC7B0098FD30 /* Constants.swift in Sources */,
 			);
