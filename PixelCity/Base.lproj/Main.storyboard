@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0K-TL-jId">
-                                <rect key="frame" x="0.0" y="20" width="375" height="70"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double-tap to drop a pin and view photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyh-jc-Wbu">
                                         <rect key="frame" x="32.5" y="24" width="310.5" height="22"/>
@@ -58,7 +58,7 @@
                         <constraints>
                             <constraint firstItem="xBz-r9-Xae" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="282-Ja-eOM"/>
                             <constraint firstItem="x0K-TL-jId" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hg6-AL-BEW"/>
-                            <constraint firstItem="x0K-TL-jId" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MOU-10-NHN"/>
+                            <constraint firstItem="x0K-TL-jId" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="I3K-7f-seF"/>
                             <constraint firstAttribute="trailing" secondItem="xBz-r9-Xae" secondAttribute="trailing" id="Tzd-YK-Mh2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0OX-xb-nOi" secondAttribute="bottom" constant="20" id="bl4-rJ-rux"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xBz-r9-Xae" secondAttribute="bottom" id="czm-a6-ipG"/>
