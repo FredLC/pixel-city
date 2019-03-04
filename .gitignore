@@ -1,0 +1,9 @@
+# Xcode
+## Secrets
+Constants.swift
+## Build generated
+build/
+DerivedData/ 
+## Various settings
+*.pbxuser
+xcuserdata/
