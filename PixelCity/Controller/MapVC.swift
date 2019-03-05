@@ -32,6 +32,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     
     var imageUrls = [String]()
     var images = [UIImage]()
+    var imageTitles = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,12 +118,15 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     
     func retrieveUrls(forAnnotation annotation: DroppablePin, completion: @escaping (_ status: Bool) -> ()) {
         Alamofire.request(flickrUrl(forApiKey: API_KEY, withAnnotation: annotation, andNumberOfPhotos: 40)).responseJSON { (response) in
+            print(response)
             guard let json = response.result.value as? Dictionary<String, AnyObject> else { return }
             let photosDict = json["photos"] as! Dictionary<String, AnyObject>
             let photosDictArray = photosDict["photo"] as! [Dictionary<String, AnyObject>]
             for photo in photosDictArray {
                 let postUrl = "https://farm\(photo["farm"]!).staticflickr.com/\(photo["server"]!)/\(photo["id"]!)_\(photo["secret"]!)_h_d.jpg"
                 self.imageUrls.append(postUrl)
+                let titlePhoto = "\(photo["title"]!)"
+                self.imageTitles.append(titlePhoto)
             }
             completion(true)
         }
@@ -246,6 +250,7 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let popVC = storyboard?.instantiateViewController(withIdentifier: "PopVC") as? PopVC else { return }
         popVC.passedImage = images[indexPath.row]
+        popVC.passedTitle = imageTitles[indexPath.row]
         present(popVC, animated: true, completion: nil)
     }
     

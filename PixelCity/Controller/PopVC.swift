@@ -11,12 +11,15 @@ import UIKit
 class PopVC: UIViewController {
 
     @IBOutlet weak var popImageView: UIImageView!
+    @IBOutlet weak var imageTitle: UILabel!
     
     var passedImage: UIImage!
+    var passedTitle: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         popImageView.image = passedImage
+        imageTitle.text = passedTitle
         addDoubleTap()
     }
     

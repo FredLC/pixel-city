@@ -113,19 +113,30 @@
                                     <constraint firstAttribute="height" constant="25" id="sVN-7P-egv"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QFt-pB-P8E">
+                                <rect key="frame" x="20" y="40" width="335" height="28.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="QFt-pB-P8E" firstAttribute="leading" secondItem="Sbk-Yr-Fil" secondAttribute="leading" constant="20" id="8Ly-Tf-U40"/>
                             <constraint firstItem="UUA-qg-26Y" firstAttribute="leading" secondItem="Sbk-Yr-Fil" secondAttribute="leading" id="9A2-JV-WbK"/>
+                            <constraint firstItem="Sbk-Yr-Fil" firstAttribute="trailing" secondItem="QFt-pB-P8E" secondAttribute="trailing" constant="20" id="9kT-BX-7Qg"/>
                             <constraint firstItem="IkZ-VQ-bfT" firstAttribute="centerX" secondItem="pkT-xZ-wNz" secondAttribute="centerX" id="CVc-AO-hez"/>
                             <constraint firstItem="Sbk-Yr-Fil" firstAttribute="bottom" secondItem="IkZ-VQ-bfT" secondAttribute="bottom" constant="20" id="K7W-re-3fE"/>
                             <constraint firstItem="UUA-qg-26Y" firstAttribute="top" secondItem="pkT-xZ-wNz" secondAttribute="top" id="UkY-Ch-0Nh"/>
                             <constraint firstItem="Sbk-Yr-Fil" firstAttribute="trailing" secondItem="UUA-qg-26Y" secondAttribute="trailing" id="VeU-F4-3ql"/>
+                            <constraint firstItem="QFt-pB-P8E" firstAttribute="top" secondItem="Sbk-Yr-Fil" secondAttribute="top" constant="20" id="YNb-8h-MhR"/>
                             <constraint firstAttribute="bottom" secondItem="UUA-qg-26Y" secondAttribute="bottom" id="bVu-Nb-bmQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Sbk-Yr-Fil"/>
                     </view>
                     <connections>
+                        <outlet property="imageTitle" destination="QFt-pB-P8E" id="ER1-0L-E8s"/>
                         <outlet property="popImageView" destination="UUA-qg-26Y" id="E0Z-OM-w0I"/>
                     </connections>
                 </viewController>
