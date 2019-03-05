@@ -44,7 +44,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         collectionView?.register(PhotoCell.self, forCellWithReuseIdentifier: "photoCell")
         collectionView?.delegate = self
         collectionView?.dataSource = self
-        collectionView?.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        collectionView?.backgroundColor = #colorLiteral(red: 0.9625374675, green: 0.9625598788, blue: 0.9625478387, alpha: 1)
         pullupView.addSubview(collectionView!)
     }
     
@@ -113,9 +113,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func retrieveUrls(forAnnotation annotation: DroppablePin, completion: @escaping (_ status: Bool) -> ()) {
-        imageUrls = []
-        
-        Alamofire.request(flickrUrl(forApiKey: API_KEY, withAnnotation: annotation, andNumberOfPhotos: 20)).responseJSON { (response) in
+        Alamofire.request(flickrUrl(forApiKey: API_KEY, withAnnotation: annotation, andNumberOfPhotos: 40)).responseJSON { (response) in
             guard let json = response.result.value as? Dictionary<String, AnyObject> else { return }
             let photosDict = json["photos"] as! Dictionary<String, AnyObject>
             let photosDictArray = photosDict["photo"] as! [Dictionary<String, AnyObject>]
@@ -128,13 +126,11 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func retrieveImages(completion: @escaping (_ status: Bool) -> ()) {
-        images = []
-        
         for url in imageUrls {
             Alamofire.request(url).responseImage { (response) in
                 guard let image = response.result.value else { return }
                 self.images.append(image)
-                self.progressLabel?.text = "\(self.images.count)/20 IMAGES DOWNLOADED"
+                self.progressLabel?.text = "\(self.images.count)/40 IMAGES DOWNLOADED"
                 
                 if self.images.count == self.imageUrls.count {
                     completion(true)
@@ -181,6 +177,10 @@ extension MapVC: MKMapViewDelegate {
         removeProgressLabel()
         cancelAllSessions()
         
+        imageUrls = []
+        images = []
+        collectionView?.reloadData()
+        
         animateViewUp()
         addSwipe()
         addSpinner()
@@ -201,7 +201,7 @@ extension MapVC: MKMapViewDelegate {
                     if success {
                         self.removeSpinner()
                         self.removeProgressLabel()
-//                        self.collectionView?.reloadData()
+                        self.collectionView?.reloadData()
                     }
                 })
             }
@@ -229,12 +229,15 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return images.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell
-        return cell!
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
+        let imageFromIndex = images[indexPath.row]
+        let imageView = UIImageView(image: imageFromIndex)
+        cell.addSubview(imageView)
+        return cell
     }
     
     
